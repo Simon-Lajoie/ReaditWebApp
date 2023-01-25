@@ -1,0 +1,97 @@
+.postBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37.5em;
+    /* background: linear-gradient(0deg, #283f55, #2D4760); */
+    background-color: #1A1A1B;
+    color: #D7DADC;
+    border-radius: 0.45em;
+    box-shadow: 0.625em 0.625em 0.9375em rgba(0,0,0,0.3);
+    text-align: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    border: solid;
+    border-width: thin;
+    border-color: #343536;
+  }
+  
+  .postBox form{
+    display: inline-block;
+    padding: 0 2.5em 1.25em;
+    box-sizing: border-box;
+  }
+  
+  .postBox h2{
+    text-align: center;
+    padding: 1em 0;
+    border-bottom: 0.0625em solid #343536;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 2em;
+  }
+
+  .createPostInput {
+    height: auto;
+    width: auto;
+    margin-top: 6em;
+    background-color: #1A1A1B;
+    border-radius: 0.45em;
+    padding: 0.7em;
+    text-align:center;
+    border: solid;
+    border-width: thin;
+    border-color: #343536;
+  }
+
+  .formCreatePost .form-group > input{
+    background-color: #1A1A1B;
+    border: solid;
+    border-width: thin;
+    border-color: #343536;
+    font-family: 'Noto Sans', sans-serif;
+    color: #D7DADC;
+  }
+  
+  .formCreatePost .form-group > textarea{
+    background-color: #1A1A1B;
+    border: solid;
+    border-width: thin;
+    border-color: #343536;
+    font-family: 'Noto Sans', sans-serif;
+    height: 13em;
+    color: #D7DADC;
+  }
+
+  .submitBtn {
+      width: 10em;
+  }
+
+  .cancelBtn {
+    width: 7em;
+}
+
+  .submitBtnDiv {
+    float: right;
+    width: 10em;
+    margin: 1em 0 0;
+  }
+
+  .cancelBtnDiv{
+    width: 5em;
+    float: left;
+    margin: 1em 0 1em;
+  }
+
+  .btn-primary {
+    color: white;
+    background-color: #FF4500;
+    border: solid;
+    border-width: thin;
+    border-color: #343536;
+  }
+  
+  .btn-primary:hover{
+    color:white;
+    background-color: #7193FF;
+  }
+

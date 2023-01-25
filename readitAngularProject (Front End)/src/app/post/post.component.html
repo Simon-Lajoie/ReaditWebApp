@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="spacer"></div>
+        <div>
+            <a [routerLink]="['/Index']" class="closePost"><i class="bi bi-x-lg"></i>&nbsp; Close</a>
+        </div>
+        <div>
+            <div class="row cardDeckPost2">
+                <div class="card cardVotePost2">
+                    <div class="cardVoteIcons">
+                        <ng-container *ngIf="upvoteContains(this.getCurrentPost()?.id); else elseUpvoteContains">
+                            <form (ngSubmit)="upvotePost(this.currentPost.id)">
+                                <button class="invisBtn btnIconClicked upvoteTxt upIcon"><i
+                                        class="fas fa-arrow-alt-circle-up"></i></button>
+                            </form>
+                            <div class="numUpvote">
+                                <h5 class="card-text upvoteTxt">{{this.getCurrentPost()?.number_upvotes}}</h5>
+                            </div>
+                        </ng-container>
+                        <ng-template #elseUpvoteContains>
+                            <form (ngSubmit)="upvotePost(this.currentPost.id)">
+                                <button class="invisBtn btnIcon upIcon"><i
+                                        class="far fa-arrow-alt-circle-up"></i></button>
+                            </form>
+                        </ng-template>
+
+                        <ng-container *ngIf="downvoteContains(this.getCurrentPost()?.id); else elseDownvoteContains">
+                            <div class="numUpvote">
+                                <h5 class="card-text downvoteTxt">{{this.currentPost.number_upvotes}}</h5>
+                            </div>
+                            <form (ngSubmit)="downvotePost(this.getCurrentPost()?.id)">
+                                <button class="invisBtn btnIconClicked downvoteTxt downIcon"><i
+                                        class="fas fa-arrow-alt-circle-down"></i></button>
+                            </form>
+                        </ng-container>
+                        <ng-template #elseDownvoteContains>
+                            <ng-container *ngIf="upvoteContains(this.getCurrentPost()?.id); else elseOther">
+                                <form (ngSubmit)="downvotePost(this.getCurrentPost()?.id)">
+                                    <button class="invisBtn btnIcon downIcon"><i
+                                            class="far fa-arrow-alt-circle-down"></i></button>
+                                </form>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #elseOther>
+                            <div class="numUpvote">
+                                <h5 class="card-text">{{this.getCurrentPost()?.number_upvotes}}</h5>
+                            </div>
+                            <form action="/Home/Downvote">
+                                <button class="invisBtn btnIcon downIcon"><i
+                                        class="far fa-arrow-alt-circle-down"></i></button>
+                            </form>
+                        </ng-template>
+                    </div>
+                </div>
+                <div class="card cardPostPage">
+                    <div class="card-body cardBodyPost">
+                        <h3 class="card-title">{{this.getCurrentPost()?.title}}</h3>
+                        <div *ngIf="this.getCurrentPost()?.link != null" style="margin-bottom: 1em;">
+                            <a class="card-text" href="{{this.getCurrentPost()?.link}}">Link:
+                                {{this.getCurrentPost()?.link}}</a>
+                        </div>
+                        <p class="card-text">{{this.getCurrentPost()?.description}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="numCommentFooter">
+                            <a class="card-text">
+                                <i class="bi bi-chat-square"></i> &nbsp; {{this.getCurrentPost()?.comments.length}}
+                                comments
+                            </a>
+                        </div>
+                        <small class="card-text" style="float:right">
+                            Posted by {{this.getCurrentPost()?.user.username}} on
+                            {{this.getCurrentPost()?.publicationDate |
+                            date:'short'}}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="commentBox">
+                <form (ngSubmit)="createComment()" style="display:inline-block">
+                    <label style="margin-bottom: 0.5em;">Comment as
+                        {{this.userService.getCurrentUser().username}}</label>
+                    <div class="">
+                        <textarea [(ngModel)]="commentInput" class="commentArea" id="comment" name="comment" rows="7"
+                            placeholder="What are your thoughts?" required></textarea>
+                    </div>
+                    <div class="submitComment">
+                        <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+            <div class="allCommentsBox">
+                <ng-container *ngFor="let comment of this.comments">
+                    <div class="userDescriptionBox">
+                        <div class="">
+                            <a [routerLink]="['/Index/', this.comment.user.id]"
+                                class="commentUsername">{{comment.user.username}}</a>
+                            <a class="dateComment">·&nbsp;{{comment.publicationDate | date:'short'}}</a>
+                            <ng-container *ngIf="this.userService.getCurrentUser().username == comment.user.username">
+                                <form (ngSubmit)="deleteComment(comment.id)" class="commentDeleteForm">
+                                    <button type="submit"
+                                        class="btn btn-primary btn-sm btnDeletePost card-text stretched-link"
+                                        style="position:relative;">
+                                        <i class="fas fa-times deleteIcon"></i>
+                                    </button>
+                                </form>
+                            </ng-container>
+                        </div>
+                        <div class="commentDescriptionBox">
+                            <p class="commentDescription">{{comment.description}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </main>
+</div>

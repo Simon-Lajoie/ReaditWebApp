@@ -1,0 +1,36 @@
+<body>
+  <div class="login-page">
+    <img src="/assets/images/readit2.png" class="loginImg" alt="readit" style="margin-top: 2.5em; width:18em;" />
+    <div class="login-container">
+      <h2 class="h2">Sign in</h2><br>
+      <div class="container">
+        <form (ngSubmit)="login()" name="loginForm">
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your username</mat-label>
+              <input matInput [(ngModel)]="username" type="text" autocomplete="off" [formControl]="usernameField"
+                required>
+              <mat-error *ngIf="usernameField.invalid">{{getErrorMessageUsername()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" type="password"
+                autocomplete="off" [formControl]="passwordField" required>
+              <mat-error *ngIf="passwordField.invalid">{{getErrorMessagePassword()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="loginBtn" mat-raised-button color="primary">Login</button>
+          </div>
+          <div class="form-group">
+            <button [routerLink]="['/Register']" class="registerBtn" mat-raised-button color="primary">Don't have an
+              account? Register here!
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: u8illvwamzuaiuz8
+    password: qxFO4C4kl5ZSjUFsk4I4
+    url: jdbc:mysql://blozj9jnqxxxnvoat65l-mysql.services.clever-cloud.com:3306/blozj9jnqxxxnvoat65l
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update

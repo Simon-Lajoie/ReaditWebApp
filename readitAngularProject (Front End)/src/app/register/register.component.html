@@ -1,0 +1,44 @@
+<body>
+  <div class="register-page">
+    <img src="/assets/images/readit2.png" class="loginImg" alt="readit" style="margin-top: 2.5em; width:18em;" />
+    <div class="register-container">
+      <h2 class="h1">Create an account</h2><br>
+      <div class="container">
+        <form (ngSubmit)="createAccount()" name="registerForm" [formGroup]="registerForm">
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your username</mat-label>
+              <input matInput [(ngModel)]="registerUsername" type="text" autocomplete="off"
+                [formControl]="usernameField" required (change)="isAlreadyExist()">
+              <mat-error *ngIf="usernameField.invalid">{{getErrorMessageUsername()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="registerPassword" type="password"
+                autocomplete="off" [formControl]="passwordField" required (change)="isMatching()">
+              <mat-error *ngIf="passwordField.invalid">{{getErrorMessagePassword()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Confirm your password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="registerPassword2" type="password"
+                autocomplete="off" [formControl]="passwordField2" required (change)="isMatching()">
+              <mat-error *ngIf="passwordField2.invalid">{{getErrorMessagePassword2()}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="registerBtn" mat-raised-button color="primary">Register</button>
+          </div>
+          <div class="form-group">
+            <button [routerLink]="['/Login']" class="loginBtn" mat-raised-button color="primary">Already have an
+              account? Sign in here!
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

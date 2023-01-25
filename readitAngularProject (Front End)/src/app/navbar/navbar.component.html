@@ -1,0 +1,36 @@
+<nav class="navbar fixed-top navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/Index']">
+            <img src="/assets/images/readit2.png" alt="readit" width="125px" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/Index']"><i class="fas fa-home"></i>&nbsp;
+                        Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/CreatePost']">Submit a post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/Index/', this.userService.getCurrentUser()?.id]">My
+                        posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/MultiChat']"><i class="fa-regular fa-comments"></i>&nbsp;Multi-User Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/Profile']"><i class="fa-solid fa-user"></i>&nbsp;Profile</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a class="nav-link">Logged in as {{this.userService.getCurrentUser()?.username}}</a>
+                <a class="nav-link btn btn-primary" (click)="logout()">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>

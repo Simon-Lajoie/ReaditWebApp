@@ -1,0 +1,52 @@
+.btn-primary {
+    color: white;
+    background-color: #FF4500;
+    border: solid;
+    border-width: thin;
+    border-color: #343536;
+  }
+  
+  .btn-primary:hover{
+    color:white;
+    background-color: #7193FF;
+  }
+  
+.navbar {
+    background-color: #1A1A1B;
+    width:100%;
+    border-bottom: solid;
+    border-width: thin;
+    border-color: #343536;
+    color:#D7DADC;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.nav-item {
+    margin:0.5em;
+}
+
+.nav-item > a {
+    color: #D7DADC;
+}
+
+.icon {
+    color: white;
+    background-color: white;
+}
+
+.nav-link {
+    color: #D7DADC;
+}
+
+.nav-item:hover {
+    color: #FF4500;
+}
+
+.btn {
+    color:white;
+    margin-right: 2em;
+}
+
+.navbar-brand {
+    margin-left:0.5em;
+}

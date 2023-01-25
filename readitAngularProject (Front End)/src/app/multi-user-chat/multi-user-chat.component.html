@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<body>
+  <div class="box">
+    <mat-drawer-container class="main-container">
+      <mat-drawer #drawer class="online-sidenav" mode="side" opened>
+        <h4>Online users</h4>
+        <span *ngFor="let onlineUser of onlineUsers">
+          <mat-icon id="personIcon">person_pin</mat-icon>
+          <p id="personP">{{onlineUser.username}}</p>
+        </span>
+      </mat-drawer>
+      <button id="btnQuit" (click)="leaveChat()">Leave chat</button>
+      <mat-slide-toggle id=onlineUsersToggle checked="true" color="primary" mat-button (change)="drawer.toggle()">Show online users</mat-slide-toggle>
+      <div id=chatDiv class="chat-container">
+        <div *ngFor="let broadcastMessage of broadcastMessages">
+          <p id="broadcastMessage">{{broadcastMessage}}</p>
+        </div>
+        <div *ngFor="let chatMessage of chatMessages">
+          <p id="chatMessage">{{chatMessage.username}}: {{chatMessage.message.toString()}}</p>
+        </div>
+      </div>
+      <div id="inputDiv">
+        <mat-form-field>
+          <input matInput [(ngModel)]="message" (keyup.enter)="sendMessage(message)">
+        </mat-form-field>
+        <button id="btnSend" (click)="sendMessage(message)">Send</button>
+      </div>
+    </mat-drawer-container>
+  </div>
+</body>

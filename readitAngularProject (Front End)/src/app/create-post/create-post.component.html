@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="postBox">
+            <h2>Create a post</h2>
+            <form (ngSubmit)="createPost()" name="postForm" class="formCreatePost" style="display:inline-block" ngNativeValidate>
+                <div class="form-group" style="text-align: left;">
+                    <input matInput [(ngModel)]="title" type="text" class="form-control" id="title" name="title"
+                        size=100 placeholder="Title" autocomplete="off" required>
+                </div>
+                <br>
+                <div class="form-group" style="text-align: left;">
+                    <input matInput [(ngModel)]="link" type="text" class="form-control" id="link" name="link"
+                        placeholder="Link (optional)" autocomplete="off">
+                </div>
+                <br>
+                <div class="form-group" style="text-align: left;">
+                    <textarea [(ngModel)]="description" class="form-control" id="description" name="description"
+                        rows="3 " placeholder="Description" autocomplete="off" required=""></textarea>
+                </div>
+                <br>
+                <div class="submitBtnDiv">
+                    <button class="btn btn-primary btn-block submitBtn" type="submit" value="Submit">Submit</button>
+                </div>
+                <div class="cancelBtnDiv">
+                    <a class="btn btn-primary btn-block cancelBtn" [routerLink]="['/Index']">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>

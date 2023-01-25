@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <main role="main" class="pb-3">
+        <div class="postBox">
+            <h2 class="h1">Edit your account</h2><br>
+            <div class="container">
+                <form (ngSubmit)="editAccount()" name="registerForm" [formGroup]="editAccountForm">
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Enter your username</mat-label>
+                            <input matInput [(ngModel)]="usernameInput" type="text" autocomplete="off"
+                                [formControl]="usernameField" required (change)="isAlreadyExist()">
+                            <mat-error *ngIf="usernameField.invalid">{{getErrorMessageUsername()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="passwordInput1"
+                                type="password" autocomplete="off" [formControl]="passwordField" required
+                                (change)="isMatching()">
+                            <mat-error *ngIf="passwordField.invalid">{{getErrorMessagePassword()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Confirm your password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="passwordInput2"
+                                type="password" autocomplete="off" [formControl]="passwordField2" required
+                                (change)="isMatching()">
+                            <mat-error *ngIf="passwordField2.invalid">{{getErrorMessagePassword2()}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="submitBtnDiv">
+                        <button class="btn btn-primary btn-block submitBtn" type="submit" value="Submit">Submit</button>
+                    </div>
+                    <div class="cancelBtnDiv">
+                        <a class="btn btn-primary btn-block cancelBtn" [routerLink]="['/Index']">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
