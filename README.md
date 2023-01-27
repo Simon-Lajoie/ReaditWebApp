@@ -12,11 +12,13 @@ A web application project that uses REST API and websocket to allow users to cre
 * Comment on Posts / Delete Comments
 
 ## Technologies
+* Java
 * Java Spring Boot (REST API)
 * JWT Authentication
 * Spring Security
 * Websockets (Used for live chat)
 * Angular and Angular Material
+* Typescript
 * MySQL Database
 
 ## How to set up
