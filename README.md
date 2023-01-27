@@ -1,5 +1,5 @@
 # READIT
-A web application project that uses REST API and websocket to allow users to create accounts, publish posts and comments, upvote and downvote, and participate in a multi-user chat.
+Readit is a Reddit-like web application developed using the Java Spring Boot framework. The project utilizes REST API and WebSockets to allow users to create accounts, publish and comment on posts, upvote and downvote, and participate in real-time multi-user chat. The goal of the project is to showcase the use of Spring Boot for building modern and scalable web applications with user authentication, data storage and real-time functionality.
 
 ## Features
 * Create account
@@ -13,10 +13,11 @@ A web application project that uses REST API and websocket to allow users to cre
 
 ## Technologies
 * Java
-* Java Spring Boot (REST API)
-* JWT Authentication
-* Spring Security
-* Websockets (Used for live chat)
+* Java Spring Boot
+  * REST API
+  * JWT Authentication
+  * Spring Security
+* Websockets (Used for live multi-user chat)
 * Angular and Angular Material
 * Typescript
 * MySQL Database
@@ -35,6 +36,9 @@ A web application project that uses REST API and websocket to allow users to cre
 5. If you want to use your own database, change the database connection details in the "application.yml" file in the "readitJavaProject (Back End)" directory.
 
 *Note: Make sure you have Java, Maven, Node.js and Angular CLI installed on your machine.*
+
+## Why Java Spring Boot ?
+The choice of Java Spring Boot for this project was to gain hands-on experience in building web applications and implementing features such as user authentication, data storage, and REST APIs. Spring Boot provides a convenient way to quickly set up a robust and scalable web application, making it a great choice for creating a Reddit-like web application that requires these functionalities.
 
 ## Author
 Simon Lajoie
